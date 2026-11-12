@@ -90,6 +90,67 @@
             border: 1px solid rgba(253,174,97,.5); }
         .to-top:hover { border-color: #fdae61; }
         @media (max-width: 480px) { .jump a { font-size: 13px; padding: 8px 13px; } .jump .pg { display: none; } }
+
+        /* ---- Heading restyle ---- */
+        .hero::before {
+            content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+            background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+            background-size: 44px 44px;
+            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+                    mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+        }
+        .hero-inner { max-width: 1040px; }
+        .meta { letter-spacing: .01em; }
+        .jump {
+            margin: 36px auto 0; max-width: 1000px; display: grid; gap: 18px; justify-items: stretch;
+            padding: 22px clamp(14px, 3vw, 28px) 24px; border-radius: 20px; text-align: left;
+            background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+            border: 1px solid rgba(255,255,255,.14);
+            box-shadow: 0 20px 50px rgba(5,10,25,.35), inset 0 1px 0 rgba(255,255,255,.08);
+            -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+        }
+        .jump-group { display: grid; gap: 10px; }
+        .jump-split { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: start; }
+        .jump-label {
+            margin: 0; display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600;
+            letter-spacing: .16em; text-transform: uppercase; color: #ffd8a8;
+        }
+        .jump-label::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,216,168,.35), transparent); }
+        .jump-row { justify-content: flex-start; }
+        .jump a {
+            padding: 9px 16px; border-radius: 12px; font-size: 14px;
+            background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18);
+            transition: transform .18s, background .2s, border-color .2s, box-shadow .2s;
+        }
+        .jump a:hover { transform: translateY(-2px); background: rgba(253,174,97,.18); border-color: #fdae61;
+            box-shadow: 0 8px 18px rgba(0,0,0,.25); }
+        .jump a:focus-visible { outline: 2px solid #ffd8a8; outline-offset: 2px; }
+        .jump .chapters a { background: rgba(253,174,97,.12); border-color: rgba(253,174,97,.45); padding-left: 10px; }
+        .jump .tag {
+            display: inline-grid; place-items: center; min-width: 28px; height: 20px; padding: 0 5px; border-radius: 6px;
+            font: 700 10px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .04em;
+        }
+        .jump .tag.py { color: #0f1c2e; background: linear-gradient(135deg, #ffe873, #4b8bbe); }
+        .jump .tag.js { color: #0f1c2e; background: linear-gradient(135deg, #abd9e9, #2c7bb6); }
+        .jump a.code { background: rgba(171,217,233,.08); border-color: rgba(171,217,233,.35); }
+        .jump a.code:hover { background: rgba(171,217,233,.18); border-color: #abd9e9; }
+        .jump a.feedback {
+            color: #1d2f4a; font-weight: 600; border-color: transparent;
+            background: linear-gradient(135deg, #ffe3c2 0%, #fdae61 100%);
+            box-shadow: 0 6px 18px rgba(253,174,97,.35);
+        }
+        .jump a.feedback .pg { color: #6b4a2b; }
+        .jump a.feedback .star { color: #d7191c; font-size: 13px; }
+        .jump a.feedback:hover { background: linear-gradient(135deg, #fff1de 0%, #ffbd80 100%); border-color: transparent; }
+        @media (max-width: 760px) {
+            .jump-split { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .jump { padding: 18px 12px 20px; border-radius: 16px; }
+            .jump-row { gap: 6px; }
+            .jump a { padding: 8px 11px; font-size: 13px; }
+        }
     </style>
 </head>
 <body>
@@ -101,9 +162,24 @@
             <p class="topic">Comparing Summer Urban Surface Heat, Population Exposure and Environmental Drivers across Greater London and Birmingham&ndash;West Midlands (MSOAs), <span style="white-space:nowrap">2021&ndash;2025</span></p>
             <p class="meta" style="margin-top:22px"><strong>Powell A. Ndlovu</strong><br>Department of Geography &middot; Swansea University &middot; September 2026</p>
             <nav class="jump" aria-label="Jump to chapter">
-                <div class="jump-row"><a href="#page-1">Title Page<span class="pg">p.1</span></a><a href="#page-2">Executive Summary<span class="pg">p.2</span></a><a href="#page-4">Contents<span class="pg">p.4</span></a><a href="#page-9">Abstract<span class="pg">p.9</span></a></div>
-                <div class="jump-row chapters"><a href="#page-11"><span class="num">1</span>Introduction<span class="pg">p.11</span></a><a href="#page-16"><span class="num">2</span>Methodology<span class="pg">p.16</span></a><a href="#page-23"><span class="num">3</span>Results<span class="pg">p.23</span></a><a href="#page-35"><span class="num">4</span>Discussion<span class="pg">p.35</span></a><a href="#page-38"><span class="num">5</span>Conclusion<span class="pg">p.38</span></a></div>
-                <div class="jump-row"><a href="#page-39">References<span class="pg">p.39</span></a><a href="#page-43">Appendix Tables<span class="pg">p.43</span></a><a href="#page-46">Earth Engine Code<span class="pg">p.46</span></a><a href="#page-74">Examiner Feedback<span class="pg">p.74</span></a></div>
+                <div class="jump-group">
+                    <p class="jump-label">Start here</p>
+                    <div class="jump-row"><a href="#page-1">Title Page<span class="pg">p.1</span></a><a href="#page-2">Executive Summary<span class="pg">p.2</span></a><a href="#page-4">Contents<span class="pg">p.4</span></a><a href="#page-9">Abstract<span class="pg">p.9</span></a></div>
+                </div>
+                <div class="jump-group">
+                    <p class="jump-label">Chapters</p>
+                    <div class="jump-row chapters"><a href="#page-11"><span class="num">1</span>Introduction<span class="pg">p.11</span></a><a href="#page-16"><span class="num">2</span>Methodology<span class="pg">p.16</span></a><a href="#page-23"><span class="num">3</span>Results<span class="pg">p.23</span></a><a href="#page-35"><span class="num">4</span>Discussion<span class="pg">p.35</span></a><a href="#page-38"><span class="num">5</span>Conclusion<span class="pg">p.38</span></a></div>
+                </div>
+                <div class="jump-split">
+                    <div class="jump-group">
+                        <p class="jump-label">Appendices &amp; code</p>
+                        <div class="jump-row"><a href="#page-39">References<span class="pg">p.39</span></a><a href="#page-43">Appendix Tables<span class="pg">p.43</span></a><a class="code" href="#page-44"><span class="tag py">PY</span>Data Analysis with Python<span class="pg">p.44</span></a><a class="code" href="#page-46"><span class="tag js">JS</span>Earth Engine Code<span class="pg">p.46</span></a></div>
+                    </div>
+                    <div class="jump-group">
+                        <p class="jump-label">Assessment</p>
+                        <div class="jump-row"><a class="feedback" href="#page-74"><span class="star" aria-hidden="true">&#9733;</span>Examiner Feedback<span class="pg">p.74</span></a></div>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
