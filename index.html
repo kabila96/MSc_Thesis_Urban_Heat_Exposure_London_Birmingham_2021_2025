@@ -140,6 +140,12 @@
             background: linear-gradient(135deg, #ffe3c2 0%, #fdae61 100%);
             box-shadow: 0 6px 18px rgba(253,174,97,.35);
         }
+        .jump .jump-row.stack { flex-direction: column; align-items: stretch; }
+        .jump .tag.gis { color: #0f1c2e; background: linear-gradient(135deg, #b8f0c8, #2e9d6a); }
+        .jump a.dash { background: rgba(102,194,140,.10); border-color: rgba(102,194,140,.45); }
+        .jump a.dash:hover { background: rgba(102,194,140,.22); border-color: #66c28c; }
+        .jump a.dash .ext { margin-left: auto; padding-left: 6px; color: #b8f0c8; font-size: 13px; }
+        .jump .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
         .jump a.feedback .pg { color: #6b4a2b; }
         .jump a.feedback .star { color: #d7191c; font-size: 13px; }
         .jump a.feedback:hover { background: linear-gradient(135deg, #fff1de 0%, #ffbd80 100%); border-color: transparent; }
@@ -176,8 +182,8 @@
                         <div class="jump-row"><a href="#page-39">References<span class="pg">p.39</span></a><a href="#page-43">Appendix Tables<span class="pg">p.43</span></a><a class="code" href="#page-44"><span class="tag py">PY</span>Data Analysis with Python<span class="pg">p.44</span></a><a class="code" href="#page-46"><span class="tag js">JS</span>Earth Engine Code<span class="pg">p.46</span></a></div>
                     </div>
                     <div class="jump-group">
-                        <p class="jump-label">Assessment</p>
-                        <div class="jump-row"><a class="feedback" href="#page-74"><span class="star" aria-hidden="true">&#9733;</span>Examiner Feedback<span class="pg">p.74</span></a></div>
+                        <p class="jump-label">Assessment &amp; dashboard</p>
+                        <div class="jump-row stack"><a class="feedback" href="#page-74"><span class="star" aria-hidden="true">&#9733;</span>Examiner Feedback<span class="pg">p.74</span></a><a class="dash" href="https://africageoportal.maps.arcgis.com/apps/dashboards/546edd2692b34de6bab47d43784e72d9#" target="_blank" rel="noopener"><span class="tag gis">GIS</span>ArcGIS Dashboard<span class="ext" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a></div>
                     </div>
                 </div>
             </nav>
